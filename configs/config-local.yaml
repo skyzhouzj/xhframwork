@@ -1,0 +1,55 @@
+# xhCloud Global Configuration
+token:
+  #Minute
+  expires-time: 500
+  header-key: 'Token'
+
+# redis configuration
+redis:
+  db: 1
+  addr: xh.skyzhou.cn:6379
+  password: Xhsoftware123
+
+# system configuration
+system:
+  env: 'develop'  # Change to "develop" to skip authentication for development mode
+  addr: 9090
+  db-type: 'oracle'
+  isCaptcha: false
+  oss-type: 'local'    # 控制oss选择走本期还是 七牛等其他仓 自行增加其他oss仓可以在 server/utils/upload/upload.go 中 NewOss函数配置
+  weixin: false
+  wexinPay: false
+
+# captcha configuration
+captcha:
+  key-long: 4
+  img-width: 240
+  img-height: 80
+
+# mysql connect configuration
+mysql:
+  path: xh.skyzhou.cn:3306
+  config: charset=utf8mb4&parseTime=True&loc=Local
+  db-name: xhsoft
+  username: root
+  password: Xhsoftware123
+  max-idle-conns: 10
+  max-open-conns: 100
+  log-mode: true
+  log-zap: ""
+
+oracle:
+  path: xh.skyzhou.cn:11024
+  db-name: orcl
+  username: xhsoft
+  password: abc123
+  max-idle-conns: 10
+  max-open-conns: 100
+
+# local configuration
+local:
+  path: uploads/file
+
+# excel configuration
+excel:
+  dir: './resource/excel/'
