@@ -14,7 +14,7 @@ http://127.0.0.1:9999/jaeger_test
 
 - [https://github.com/xinliangnote/go-jaeger-demo](https://github.com/xinliangnote/go-jaeger-demo)
 
-![](https://github.com/xinliangnote/Go/blob/master/03-go-gin-api%20%5B文档%5D/images/jaeger_demo_2.png)
+![](https://github.com/xinliangnote/Go/blob/master/03-xhframwork%20%5B文档%5D/images/jaeger_demo_2.png)
 
-![](https://github.com/xinliangnote/Go/blob/master/03-go-gin-api%20%5B文档%5D/images/jaeger_demo_3.png)
+![](https://github.com/xinliangnote/Go/blob/master/03-xhframwork%20%5B文档%5D/images/jaeger_demo_3.png)
 

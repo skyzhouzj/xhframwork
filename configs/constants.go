@@ -2,10 +2,10 @@ package configs
 
 const (
 	// ProjectVersion 项目版本
-	ProjectVersion = "v1.2.7"
+	ProjectVersion = "v1.0.1"
 
 	// ProjectName 项目名称
-	ProjectName = "go-gin-api"
+	ProjectName = "xhframwork"
 
 	// ProjectDomain 项目域名
 	ProjectDomain = "http://127.0.0.1"
@@ -26,10 +26,10 @@ const (
 	HeaderLoginToken = "Token"
 
 	// HeaderSignToken 签名验证 Token，Header 中传递的参数
-	HeaderSignToken = "Authorization"
+	HeaderSignToken = "XhFramwork"
 
 	// HeaderSignTokenDate 签名验证 Date，Header 中传递的参数
-	HeaderSignTokenDate = "Authorization-Date"
+	HeaderSignTokenDate = "XhFramwork-Date"
 
 	// RedisKeyPrefixRequestID Redis Key 前缀 - 防止重复提交
 	RedisKeyPrefixRequestID = ProjectName + ":request-id:"

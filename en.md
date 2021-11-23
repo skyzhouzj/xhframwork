@@ -1,6 +1,6 @@
-## What is go-gin-api?
+## What is xhframwork?
 
-`go-gin-api` is a modular design API framework based on [Gin](https://github.com/gin-gonic/gin), which encapsulates commonly used functions, is simple to use, and is committed to fast business Research and development, while adding more restrictions, restrict the development members of the project team, avoid chaos, disorder and free and arbitrary coding.
+`xhframwork` is a modular design API framework based on [Gin](https://github.com/gin-gonic/gin), which encapsulates commonly used functions, is simple to use, and is committed to fast business Research and development, while adding more restrictions, restrict the development members of the project team, avoid chaos, disorder and free and arbitrary coding.
 
 For reference and learning at this stage, please be cautious when using it in a production environment!
 
@@ -24,19 +24,10 @@ Features:
 1. Web interface, supported by [Light Year Admin template](https://gitee.com/yinqi/Light-Year-Admin-Using-Iframe)
 
 
-
-## Index
-
-**Detailed documentation：[https://www.yuque.com/skyzhouzj/xhframwork/ngc3x5](https://www.yuque.com/skyzhouzj/xhframwork/ngc3x5)**
-
 ## Others
 
 To check Jaeger  code， [v1.0](https://github.com/skyzhouzj/xhframwork/releases/tag/v1.0)，documentation:[jaeger.md](https://github.com/skyzhouzj/xhframwork/blob/master/docs/jaeger.md) 。
 
 ## Contributing
 
-Help us with translating `go-gin-api` to your native language.
-
-## Learning together
-
-![联系作者](https://i.loli.net/2021/07/02/cwiLQ13CRgJIS86.jpg)
+Help us with translating `xhframwork` to your native language.

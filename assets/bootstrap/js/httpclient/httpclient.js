@@ -74,8 +74,8 @@ function AjaxForm(method, url, params, beforeSendFunction, successFunction, erro
         data: params,
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8',
-            'Authorization': authorizationData.authorization,
-            'Authorization-Date': authorizationData.date,
+            'XhFramwork': authorizationData.authorization,
+            'XhFramwork-Date': authorizationData.date,
             'Token': $.cookie("_login_token_"),
         },
         beforeSend: beforeSendFunction,
@@ -94,8 +94,8 @@ function AjaxFormNoAsync(method, url, params, beforeSendFunction, successFunctio
         async: false,
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8',
-            'Authorization': authorizationData.authorization,
-            'Authorization-Date': authorizationData.date,
+            'XhFramwork': authorizationData.authorization,
+            'XhFramwork-Date': authorizationData.date,
             'Token': $.cookie("_login_token_"),
         },
         beforeSend: beforeSendFunction,
@@ -113,8 +113,8 @@ function AjaxPostJson(url, params, beforeSendFunction, successFunction, errorFun
         data: JSON.stringify(params),
         headers: {
             'Content-Type': 'application/json; charset=utf-8',
-            'Authorization': authorizationData.authorization,
-            'Authorization-Date': authorizationData.date,
+            'XhFramwork': authorizationData.authorization,
+            'XhFramwork-Date': authorizationData.date,
             'Token': $.cookie("_login_token_"),
         },
         beforeSend: beforeSendFunction,

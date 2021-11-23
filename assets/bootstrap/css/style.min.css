@@ -3811,6 +3811,10 @@ button.list-group-item:hover {
 .navbar-right .dropdown-profile {
     cursor: pointer;
 }
+/*取消主题选择*/
+.dropdown-skin{
+    display: none;
+}
 
 /* 消息提示 */
 .dropdown-notice .dropdown-menu {
@@ -3858,6 +3862,9 @@ button.list-group-item:hover {
     -ms-user-select: none; /* IE10 */
     -khtml-user-select: none; /* 早期浏览器 */
     user-select: none;
+}
+.qrcode{
+    display: none;
 }
 .drop-title {
     color: #4d5259;

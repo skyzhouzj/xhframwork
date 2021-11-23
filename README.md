@@ -1,6 +1,6 @@
 ## 关于
 
-`go-gin-api` 是基于 [Gin](https://github.com/gin-gonic/gin) 进行模块化设计的 API 框架，封装了常用的功能，使用简单，致力于进行快速的业务研发，同时增加了更多限制，约束项目组开发成员，规避混乱无序及自由随意的编码。
+`xhframwork` 是基于 [Gin](https://github.com/gin-gonic/gin) 进行模块化设计的 API 框架，封装了常用的功能，使用简单，致力于进行快速的业务研发，同时增加了更多限制，约束项目组开发成员，规避混乱无序及自由随意的编码。
 
 供参考学习，线上使用请谨慎！
 
@@ -27,7 +27,7 @@
 
 ## 文档索引
 
-- 中文文档：[go-gin-api - 语雀](https://www.yuque.com/skyzhouzj/xhframwork/ngc3x5)
+- 中文文档：[xhframwork - 语雀](https://www.yuque.com/skyzhouzj/xhframwork/ngc3x5)
 - English Document：[en.md](https://github.com/skyzhouzj/xhframwork/blob/master/en.md)
 
 ## 其他
