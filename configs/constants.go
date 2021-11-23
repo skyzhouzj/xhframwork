@@ -2,10 +2,10 @@ package configs
 
 const (
 	// ProjectVersion 项目版本
-	ProjectVersion = "v1.0.0"
+	ProjectVersion = "v1.2.7"
 
 	// ProjectName 项目名称
-	ProjectName = "xh-framwork-api"
+	ProjectName = "go-gin-api"
 
 	// ProjectDomain 项目域名
 	ProjectDomain = "http://127.0.0.1"
@@ -18,6 +18,9 @@ const (
 
 	// ProjectCronLogFile 项目后台任务日志存放文件
 	ProjectCronLogFile = "./logs/" + ProjectName + "-cron.log"
+
+	// ProjectInstallMark 项目安装完成标识
+	ProjectInstallMark = "INSTALL.lock"
 
 	// HeaderLoginToken 登录验证 Token，Header 中传递的参数
 	HeaderLoginToken = "Token"

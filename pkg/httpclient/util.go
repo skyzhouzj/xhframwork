@@ -4,11 +4,12 @@ import (
 	"bytes"
 	"context"
 	"crypto/tls"
-	"github.com/skyzhouzj/xhframwork/pkg/trace"
 	"io/ioutil"
 	"net/http"
 	"net/url"
 	"time"
+
+	"github.com/skyzhouzj/xhframwork/pkg/trace"
 
 	"github.com/pkg/errors"
 	"go.uber.org/zap"

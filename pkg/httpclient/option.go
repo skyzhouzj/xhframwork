@@ -1,9 +1,10 @@
 package httpclient
 
 import (
-	"github.com/skyzhouzj/xhframwork/pkg/trace"
 	"sync"
 	"time"
+
+	"github.com/skyzhouzj/xhframwork/pkg/trace"
 
 	"go.uber.org/zap"
 )

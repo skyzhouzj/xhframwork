@@ -62,7 +62,7 @@
 
 ```cassandraql
 // 调试时，使用这个方法：
-//p.Print("key", "value", p.WithTrace(c.Trace()))
+p.Print("key", "value", p.WithTrace(c.Trace()))
 ```
 
 只有参数中增加了 `p.WithTrace(c.Trace())`，才会记录到 `debugs` 中。
@@ -72,7 +72,7 @@
 是否成功，true 或 false
 
 ```cassandraql
-//success = !ctx.IsAborted() && ctx.Writer.Status() == http.StatusOK
+success = !ctx.IsAborted() && ctx.Writer.Status() == http.StatusOK
 ```
 
 ##### cost_seconds

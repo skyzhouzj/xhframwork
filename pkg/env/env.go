@@ -10,7 +10,7 @@ var (
 	active Environment
 	dev    Environment = &environment{value: "dev"}
 	fat    Environment = &environment{value: "fat"}
-	pre    Environment = &environment{value: "pre"}
+	uat    Environment = &environment{value: "uat"}
 	pro    Environment = &environment{value: "pro"}
 )
 
@@ -21,7 +21,7 @@ type Environment interface {
 	Value() string
 	IsDev() bool
 	IsFat() bool
-	IsPre() bool
+	IsUat() bool
 	IsPro() bool
 	t()
 }
@@ -42,8 +42,8 @@ func (e *environment) IsFat() bool {
 	return e.value == "fat"
 }
 
-func (e *environment) IsPre() bool {
-	return e.value == "pre"
+func (e *environment) IsUat() bool {
+	return e.value == "uat"
 }
 
 func (e *environment) IsPro() bool {
@@ -61,8 +61,8 @@ func init() {
 		active = dev
 	case "fat":
 		active = fat
-	case "pre":
-		active = pre
+	case "uat":
+		active = uat
 	case "pro":
 		active = pro
 	default:

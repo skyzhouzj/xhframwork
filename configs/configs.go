@@ -1,71 +1,95 @@
 package configs
 
-type Mysql struct {
-	Path         string `mapstructure:"path" json:"path" yaml:"path"`
-	Config       string `mapstructure:"config" json:"config" yaml:"config"`
-	Dbname       string `mapstructure:"db-name" json:"dbname" yaml:"db-name"`
-	Username     string `mapstructure:"username" json:"username" yaml:"username"`
-	Password     string `mapstructure:"password" json:"password" yaml:"password"`
-	MaxIdleConns int    `mapstructure:"max-idle-conns" json:"maxIdleConns" yaml:"max-idle-conns"`
-	MaxOpenConns int    `mapstructure:"max-open-conns" json:"maxOpenConns" yaml:"max-open-conns"`
-	LogMode      bool   `mapstructure:"log-mode" json:"logMode" yaml:"log-mode"`
-	LogZap       string `mapstructure:"log-zap" json:"logZap" yaml:"log-zap"`
+import (
+	"time"
+
+	"github.com/skyzhouzj/xhframwork/pkg/env"
+
+	"github.com/fsnotify/fsnotify"
+	"github.com/spf13/viper"
+)
+
+var config = new(Config)
+
+type Config struct {
+	MySQL struct {
+		Read struct {
+			Addr string `toml:"addr"`
+			User string `toml:"user"`
+			Pass string `toml:"pass"`
+			Name string `toml:"name"`
+		} `toml:"read"`
+		Write struct {
+			Addr string `toml:"addr"`
+			User string `toml:"user"`
+			Pass string `toml:"pass"`
+			Name string `toml:"name"`
+		} `toml:"write"`
+		Base struct {
+			MaxOpenConn     int           `toml:"maxOpenConn"`
+			MaxIdleConn     int           `toml:"maxIdleConn"`
+			ConnMaxLifeTime time.Duration `toml:"connMaxLifeTime"`
+		} `toml:"base"`
+	} `toml:"mysql"`
+
+	Redis struct {
+		Addr         string `toml:"addr"`
+		Pass         string `toml:"pass"`
+		Db           int    `toml:"db"`
+		MaxRetries   int    `toml:"maxRetries"`
+		PoolSize     int    `toml:"poolSize"`
+		MinIdleConns int    `toml:"minIdleConns"`
+	} `toml:"redis"`
+
+	Mail struct {
+		Host string `toml:"host"`
+		Port int    `toml:"port"`
+		User string `toml:"user"`
+		Pass string `toml:"pass"`
+		To   string `toml:"to"`
+	} `toml:"mail"`
+
+	JWT struct {
+		Secret         string        `toml:"secret"`
+		ExpireDuration time.Duration `toml:"expireDuration"`
+	} `toml:"jwt"`
+
+	URLToken struct {
+		Secret         string        `toml:"secret"`
+		ExpireDuration time.Duration `toml:"expireDuration"`
+	} `toml:"urlToken"`
+
+	HashIds struct {
+		Secret string `toml:"secret"`
+		Length int    `toml:"length"`
+	} `toml:"hashids"`
+
+	Language struct {
+		Local string `toml:"local"`
+	} `toml:"language"`
 }
 
-type Oracle struct {
-	Path         string `mapstructure:"path" json:"path" yaml:"path"`
-	Dbname       string `mapstructure:"db-name" json:"dbname" yaml:"db-name"`
-	Username     string `mapstructure:"username" json:"username" yaml:"username"`
-	Password     string `mapstructure:"password" json:"password" yaml:"password"`
-	MaxIdleConns int    `mapstructure:"max-idle-conns" json:"maxIdleConns" yaml:"max-idle-conns"`
-	MaxOpenConns int    `mapstructure:"max-open-conns" json:"maxOpenConns" yaml:"max-open-conns"`
+func init() {
+	viper.SetConfigName(env.Active().Value() + "_configs")
+	viper.SetConfigType("toml")
+	viper.AddConfigPath("./configs")
+
+	if err := viper.ReadInConfig(); err != nil {
+		panic(err)
+	}
+
+	if err := viper.Unmarshal(config); err != nil {
+		panic(err)
+	}
+
+	viper.WatchConfig()
+	viper.OnConfigChange(func(e fsnotify.Event) {
+		if err := viper.Unmarshal(config); err != nil {
+			panic(err)
+		}
+	})
 }
 
-type Server struct {
-	Redis   Redis   `mapstructure:"redis" json:"redis" yaml:"redis"`
-	System  System  `mapstructure:"system" json:"system" yaml:"system"`
-	Captcha Captcha `mapstructure:"captcha" json:"captcha" yaml:"captcha"`
-	Mysql   Mysql   `mapstructure:"mysql" json:"mysql" yaml:"mysql"`
-	Oracle  Oracle  `mapstructure:"oracle" json:"oracle" yaml:"oracle"`
-	Local   Local   `mapstructure:"local" json:"local" yaml:"local"`
-	Excel   Excel   `mapstructure:"excel" json:"excel" yaml:"excel"`
-	Token   Token   `mapstructure:"token" json:"token" yaml:"token"`
-}
-
-type Local struct {
-	Path string `mapstructure:"path" json:"path" yaml:"path" `
-}
-
-func (m *Mysql) Dsn() string {
-	return m.Username + ":" + m.Password + "@tcp(" + m.Path + ")/" + m.Dbname + "?" + m.Config
-}
-
-type Redis struct {
-	DB       int    `mapstructure:"db" json:"db" yaml:"db"`
-	Addr     string `mapstructure:"addr" json:"addr" yaml:"addr"`
-	Password string `mapstructure:"password" json:"password" yaml:"password"`
-}
-
-type System struct {
-	Env           string `mapstructure:"env" json:"env" yaml:"env"`
-	Addr          int    `mapstructure:"addr" json:"addr" yaml:"addr"`
-	DbType        string `mapstructure:"db-type" json:"dbType" yaml:"db-type"`
-	OssType       string `mapstructure:"oss-type" json:"ossType" yaml:"oss-type"`
-	UseMultipoint bool   `mapstructure:"use-multipoint" json:"useMultipoint" yaml:"use-multipoint"`
-	IsCaptcha     bool   `mapstructure:"isCaptcha" json:"isCaptcha" yaml:"isCaptcha"`
-	Weixin        bool   `mapstructure:"weixin" json:"weixin" yaml:"weixin"`
-	WexinPay      bool   `mapstructure:"wexinPay" json:"wexinPay" yaml:"wexinPay"`
-}
-
-type Token struct {
-	HeaderKey   string `mapstructure:"header-key" json:"header-key" yaml:"header-key"`
-	ExpiresTime int64  `mapstructure:"expires-time" json:"expires-time" yaml:"expires-time"`
-}
-type Excel struct {
-	Dir string `mapstructure:"dir" json:"dir" yaml:"dir"`
-}
-type Captcha struct {
-	KeyLong   int `mapstructure:"key-long" json:"keyLong" yaml:"key-long"`
-	ImgWidth  int `mapstructure:"img-width" json:"imgWidth" yaml:"img-width"`
-	ImgHeight int `mapstructure:"img-height" json:"imgHeight" yaml:"img-height"`
+func Get() Config {
+	return *config
 }

@@ -1,9 +1,10 @@
 package urltable
 
 import (
-	errors "github.com/skyzhouzj/xhframwork/pkg/err"
 	"net/http"
 	"strings"
+
+	"github.com/skyzhouzj/xhframwork/pkg/errors"
 )
 
 const (

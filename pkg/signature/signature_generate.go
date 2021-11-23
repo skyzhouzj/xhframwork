@@ -6,10 +6,11 @@ import (
 	"crypto/sha256"
 	"encoding/base64"
 	"fmt"
-	errors "github.com/skyzhouzj/xhframwork/pkg/err"
-	"github.com/skyzhouzj/xhframwork/pkg/time_parse"
 	"net/url"
 	"strings"
+
+	"github.com/skyzhouzj/xhframwork/pkg/errors"
+	"github.com/skyzhouzj/xhframwork/pkg/time_parse"
 )
 
 // Generate

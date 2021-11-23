@@ -6,11 +6,12 @@ import (
 	"crypto/sha256"
 	"encoding/base64"
 	"fmt"
-	errors "github.com/skyzhouzj/xhframwork/pkg/err"
-	"github.com/skyzhouzj/xhframwork/pkg/time_parse"
 	"net/url"
 	"strings"
 	"time"
+
+	"github.com/skyzhouzj/xhframwork/pkg/errors"
+	"github.com/skyzhouzj/xhframwork/pkg/time_parse"
 )
 
 func (s *signature) Verify(authorization, date string, path string, method string, params url.Values) (ok bool, err error) {
