@@ -33,11 +33,11 @@
                 </header>
 
                 <div class="card-body">
-                    <p>基于 HTTP Header 中的两个参数 <code>Authorization</code>、<code>Authorization-Date</code> 存储签名信息。</p>
-                    <p>1. Authorization 存储签名信息，格式：调用方 KEY + 空格分隔符 + 摘要(加密串)，例如：</p>
-                    <pre>Authorization:blog MjJjMDE1MWFkZjMwOWFmYjFlNzViNDFjYjYwMWFlMmM=</pre>
-                    <p>2. Authorization-Date 存储时间信息，格式：0000-00-00 00:00:00，使用 <code>Asia/Shanghai</code> 时区，例如；</p>
-                    <pre>Authorization-Date:2021-04-03 21:12:36</pre>
+                    <p>基于 HTTP Header 中的两个参数 <code>XhFramwork</code>、<code>XhFramwork-Date</code> 存储签名信息。</p>
+                    <p>1. XhFramwork 存储签名信息，格式：调用方 KEY + 空格分隔符 + 摘要(加密串)，例如：</p>
+                    <pre>XhFramwork:blog MjJjMDE1MWFkZjMwOWFmYjFlNzViNDFjYjYwMWFlMmM=</pre>
+                    <p>2. XhFramwork-Date 存储时间信息，格式：0000-00-00 00:00:00，使用 <code>Asia/Shanghai</code> 时区，例如；</p>
+                    <pre>XhFramwork-Date:2021-04-03 21:12:36</pre>
                 </div>
             </div>
         </div>
@@ -135,8 +135,8 @@ func TestSignature_Generate(t *testing.T) {
 	params.Add("c", "c1 c2*")
 
 	authorization, date, err := New(key, secret, ttl).Generate(path, method, params)
-	t.Log("authorization:", authorization)
-	t.Log("authorization-date:", date)
+	t.Log("XhFramwork:", authorization)
+	t.Log("XhFramwork-date:", date)
 	t.Log("err:", err)
 }
                             </pre>
@@ -171,9 +171,9 @@ $digest = base64_encode(hash_hmac("sha256", $encryptStr, $secret, true));
 
 $authorization = $key." ".$digest;
 
-echo "authorization:{$authorization}";
+echo "XhFramwork:{$authorization}";
 echo "---";
-echo "authorization-date:{$date}";
+echo "XhFramwork-date:{$date}";
                             </pre>
                         </div>
                         <div class="tab-pane fade" id="js">
@@ -196,7 +196,7 @@ let params = {a:'a1', d:'d1', c: 'c1 c2*'};
 let sortParamsEncode = decodeURIComponent(jQuery.param(ksort(params)));
 let encryptStr = path + "|" + method.toUpperCase() + "|" + sortParamsEncode + "|" + datetime;
 let digest = CryptoJS.enc.Base64.stringify(CryptoJS.HmacSHA256(encryptStr, secret));
-console.log({authorization: key + " " + digest, date: datetime});
+console.log({XhFramwork: key + " " + digest, date: datetime});
                             </pre>
                         </div>
                     </div>

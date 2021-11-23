@@ -11,3 +11,7 @@ type AdminMenu struct {
 	CreatedAt   time.Time `gorm:"time"` // 创建时间
 	CreatedUser string    // 创建人
 }
+
+func (*AdminMenu) TableName() string {
+	return "sys_admin_menu"
+}

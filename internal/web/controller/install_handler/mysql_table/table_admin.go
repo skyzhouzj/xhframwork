@@ -1,6 +1,6 @@
 package mysql_table
 
-//CREATE TABLE `admin` (
+//CREATE TABLE `sys_admin` (
 //`id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '主键',
 //`username` varchar(32) NOT NULL DEFAULT '' COMMENT '用户名',
 //`password` varchar(100) NOT NULL DEFAULT '' COMMENT '密码',
@@ -17,7 +17,7 @@ package mysql_table
 //) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='管理员表';
 
 func CreateAdminTableSql() (sql string) {
-	sql = "CREATE TABLE `admin` ("
+	sql = "CREATE TABLE `sys_admin` ("
 	sql += "`id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '主键',"
 	sql += "`username` varchar(32) NOT NULL DEFAULT '' COMMENT '用户名',"
 	sql += "`password` varchar(100) NOT NULL DEFAULT '' COMMENT '密码',"
@@ -37,7 +37,7 @@ func CreateAdminTableSql() (sql string) {
 }
 
 func CreateAdminTableDataSql() (sql string) {
-	sql = "INSERT INTO `admin` (`id`, `username`, `password`, `nickname`, `mobile`, `created_user`) VALUES"
+	sql = "INSERT INTO `sys_admin` (`id`, `username`, `password`, `nickname`, `mobile`, `created_user`) VALUES"
 	sql += "(1, 'admin', 'f78382de80cf583cf854bbac0b6e796fbde36fe2739ca4ae072637010f179cb0', '管理员', '13888888888', 'init');"
 
 	return

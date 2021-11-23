@@ -33,7 +33,7 @@ func (m *middleware) Signature() core.HandlerFunc {
 			c.AbortWithError(errno.NewError(
 				http.StatusBadRequest,
 				code.AuthorizationError,
-				code.Text(code.AuthorizationError)).WithErr(errors.New("Header 中缺少 Authorization 参数")),
+				code.Text(code.AuthorizationError)).WithErr(errors.New("Header 中缺少 XhFramwork 参数")),
 			)
 			return
 		}
@@ -55,7 +55,7 @@ func (m *middleware) Signature() core.HandlerFunc {
 			c.AbortWithError(errno.NewError(
 				http.StatusBadRequest,
 				code.AuthorizationError,
-				code.Text(code.AuthorizationError)).WithErr(errors.New("Header 中 Authorization 格式错误")),
+				code.Text(code.AuthorizationError)).WithErr(errors.New("Header 中 XhFramwork 格式错误")),
 			)
 			return
 		}
@@ -121,7 +121,7 @@ func (m *middleware) Signature() core.HandlerFunc {
 			c.AbortWithError(errno.NewError(
 				http.StatusBadRequest,
 				code.AuthorizationError,
-				code.Text(code.AuthorizationError)).WithErr(errors.New("Header 中 Authorization 信息错误")),
+				code.Text(code.AuthorizationError)).WithErr(errors.New("Header 中 XhFramwork 信息错误")),
 			)
 			return
 		}

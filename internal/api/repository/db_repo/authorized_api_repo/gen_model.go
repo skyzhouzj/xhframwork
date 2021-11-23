@@ -15,3 +15,7 @@ type AuthorizedApi struct {
 	UpdatedAt   time.Time `gorm:"time"` // 更新时间
 	UpdatedUser string    // 更新人
 }
+
+func (*AuthorizedApi) TableName() string {
+	return "sys_authorized_api"
+}

@@ -1,6 +1,6 @@
 package mysql_table
 
-//CREATE TABLE `authorized_api` (
+//CREATE TABLE `sys_authorized_api` (
 //`id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '主键',
 //`business_key` varchar(32) NOT NULL DEFAULT '' COMMENT '调用方key',
 //`method` varchar(30) NOT NULL DEFAULT '' COMMENT '请求方式',
@@ -14,7 +14,7 @@ package mysql_table
 //) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='已授权接口地址表';
 
 func CreateAuthorizedAPITableSql() (sql string) {
-	sql = "CREATE TABLE `authorized_api` ("
+	sql = "CREATE TABLE `sys_authorized_api` ("
 	sql += "`id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '主键',"
 	sql += "`business_key` varchar(32) NOT NULL DEFAULT '' COMMENT '调用方key',"
 	sql += "`method` varchar(30) NOT NULL DEFAULT '' COMMENT '请求方式',"
@@ -31,7 +31,7 @@ func CreateAuthorizedAPITableSql() (sql string) {
 }
 
 func CreateAuthorizedAPITableDataSql() (sql string) {
-	sql = "INSERT INTO `authorized_api` (`id`, `business_key`, `method`, `api`,`created_user`) VALUES"
+	sql = "INSERT INTO `sys_authorized_api` (`id`, `business_key`, `method`, `api`,`created_user`) VALUES"
 	sql += "(1, 'admin', 'GET', '/api/**', 'init'),"
 	sql += "(2, 'admin', 'POST', '/api/**', 'init'),"
 	sql += "(3, 'admin', 'PUT', '/api/**', 'init'),"

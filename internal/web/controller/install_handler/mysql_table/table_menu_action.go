@@ -1,6 +1,6 @@
 package mysql_table
 
-//CREATE TABLE `menu_action` (
+//CREATE TABLE `sys_menu_action` (
 //`id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '主键',
 //`menu_id` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '菜单栏ID',
 //`method` varchar(30) NOT NULL DEFAULT '' COMMENT '请求方式',
@@ -15,7 +15,7 @@ package mysql_table
 //) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='功能权限表';
 
 func CreateMenuActionTableSql() (sql string) {
-	sql = "CREATE TABLE `menu_action` ("
+	sql = "CREATE TABLE `sys_menu_action` ("
 	sql += "`id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '主键',"
 	sql += "`menu_id` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '菜单栏ID',"
 	sql += "`method` varchar(30) NOT NULL DEFAULT '' COMMENT '请求方式',"
@@ -33,7 +33,7 @@ func CreateMenuActionTableSql() (sql string) {
 }
 
 func CreateMenuActionTableDataSql() (sql string) {
-	sql = "INSERT INTO `menu_action` (`id`, `menu_id`, `method`, `api`, `created_user`) VALUES"
+	sql = "INSERT INTO `sys_menu_action` (`id`, `menu_id`, `method`, `api`, `created_user`) VALUES"
 	sql += "(1, 17, 'GET', '/api/tool/hashids/**', 'init'),"
 	sql += "(2, 14, 'POST', '/api/tool/cache/search', 'init'),"
 	sql += "(3, 14, 'PATCH', '/api/tool/cache/clear', 'init'),"

@@ -1,6 +1,6 @@
 package mysql_table
 
-//CREATE TABLE `admin_menu` (
+//CREATE TABLE `sys_admin_menu` (
 //`id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '主键',
 //`admin_id` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '管理员ID',
 //`menu_id` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '菜单栏ID',
@@ -11,7 +11,7 @@ package mysql_table
 //) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='管理员菜单栏表';
 
 func CreateAdminMenuTableSql() (sql string) {
-	sql = "CREATE TABLE `admin_menu` ("
+	sql = "CREATE TABLE `sys_admin_menu` ("
 	sql += "`id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '主键',"
 	sql += "`admin_id` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '管理员ID',"
 	sql += "`menu_id` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '菜单栏ID',"
@@ -25,7 +25,7 @@ func CreateAdminMenuTableSql() (sql string) {
 }
 
 func CreateAdminMenuTableDataSql() (sql string) {
-	sql = "INSERT INTO `admin_menu` (`id`, `admin_id`, `menu_id`, `created_user`) VALUES"
+	sql = "INSERT INTO `sys_admin_menu` (`id`, `admin_id`, `menu_id`, `created_user`) VALUES"
 	sql += "(1, 1, 16, 'init'),"
 	sql += "(2, 1, 21, 'init'),"
 	sql += "(3, 1, 20, 'init'),"

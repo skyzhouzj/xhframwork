@@ -17,3 +17,7 @@ type Admin struct {
 	UpdatedAt   time.Time `gorm:"time"` // 更新时间
 	UpdatedUser string    // 更新人
 }
+
+func (*Admin) TableName() string {
+	return "sys_admin"
+}

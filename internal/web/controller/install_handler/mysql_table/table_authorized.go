@@ -1,6 +1,6 @@
 package mysql_table
 
-//CREATE TABLE `authorized` (
+//CREATE TABLE `sys_authorized` (
 //`id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '主键',
 //`business_key` varchar(32) NOT NULL DEFAULT '' COMMENT '调用方key',
 //`business_secret` varchar(60) NOT NULL DEFAULT '' COMMENT '调用方secret',
@@ -17,7 +17,7 @@ package mysql_table
 //) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='已授权的调用方表';
 
 func CreateAuthorizedTableSql() (sql string) {
-	sql = "CREATE TABLE `authorized` ("
+	sql = "CREATE TABLE `sys_authorized` ("
 	sql += "`id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '主键',"
 	sql += "`business_key` varchar(32) NOT NULL DEFAULT '' COMMENT '调用方key',"
 	sql += "`business_secret` varchar(60) NOT NULL DEFAULT '' COMMENT '调用方secret',"
@@ -37,7 +37,7 @@ func CreateAuthorizedTableSql() (sql string) {
 }
 
 func CreateAuthorizedTableDataSql() (sql string) {
-	sql = "INSERT INTO `authorized` (`id`, `business_key`, `business_secret`, `business_developer`, `remark`, `created_user`) VALUES (1, 'admin', '12878dd962115106db6d', '管理员', '管理面板调用', 'init');"
+	sql = "INSERT INTO `sys_authorized` (`id`, `business_key`, `business_secret`, `business_developer`, `remark`, `created_user`) VALUES (1, 'admin', '12878dd962115106db6d', '管理员', '管理面板调用', 'init');"
 
 	return
 }

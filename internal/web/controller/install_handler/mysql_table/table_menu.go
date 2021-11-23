@@ -1,6 +1,6 @@
 package mysql_table
 
-//CREATE TABLE `menu` (
+//CREATE TABLE `sys_menu` (
 //`id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '主键',
 //`pid` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '父类ID',
 //`name` varchar(32) NOT NULL DEFAULT '' COMMENT '菜单名称',
@@ -18,7 +18,7 @@ package mysql_table
 //) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='左侧菜单栏表';
 
 func CreateMenuTableSql() (sql string) {
-	sql = "CREATE TABLE `menu` ("
+	sql = "CREATE TABLE `sys_menu` ("
 	sql += "`id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '主键',"
 	sql += "`pid` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '父类ID',"
 	sql += "`name` varchar(32) NOT NULL DEFAULT '' COMMENT '菜单名称',"
@@ -39,7 +39,7 @@ func CreateMenuTableSql() (sql string) {
 }
 
 func CreateMenuTableDataSql() (sql string) {
-	sql = "INSERT INTO `menu` (`id`, `pid`, `name`, `link`, `icon`, `level`, `sort`, `created_user`) VALUES"
+	sql = "INSERT INTO `sys_menu` (`id`, `pid`, `name`, `link`, `icon`, `level`, `sort`, `created_user`) VALUES"
 	sql += "(1, 0, '配置信息', '', 'mdi-settings-box', 1, 10, 'init'),"
 	sql += "(2, 1, '告警邮箱', '/config/email', '', 2, 101, 'init'),"
 	sql += "(3, 1, '错误码', '/config/code', '', 2, 102, 'init'),"
