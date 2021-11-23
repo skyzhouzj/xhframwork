@@ -34,7 +34,4 @@
 
 查看 Jaeger 链路追踪代码，请查看 [v1.0版](https://github.com/skyzhouzj/xhframwork/releases/tag/v1.0)，文档点这里 [jaeger.md](https://github.com/skyzhouzj/xhframwork/blob/master/docs/jaeger.md) 。
 
-## 联系作者
-
-![联系作者](https://i.loli.net/2021/07/02/cwiLQ13CRgJIS86.jpg)
 
