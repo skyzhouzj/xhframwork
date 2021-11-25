@@ -10,7 +10,7 @@ ENV GOPROXY=https://goproxy.io,direct
 COPY . $GOPATH/src/github.com/skyzhouzj/xhframwork
 
 # RUN 执行 go build .
-RUN cd $GOPATH/src/github.com/skyzhouzj/xhframwork && go build .
+RUN cd $GOPATH/src/github.com/skyzhouzj/xhframwork
 
 # FROM 基于 alpine:latest
 FROM alpine:latest
